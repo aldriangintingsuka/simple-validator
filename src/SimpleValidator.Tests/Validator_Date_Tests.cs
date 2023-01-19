@@ -13,10 +13,11 @@ namespace SimpleValidator.Tests
         {
             Validator validator = new Validator();
 
-            validator.IsGreaterThan(DateTime.Now, DateTime.Now.AddSeconds(-5));
-            validator.IsGreaterThan(DateTime.Now, DateTime.Now.AddMinutes(-5));
-            validator.IsGreaterThan(DateTime.Now.Date, DateTime.Now.AddDays(-1));
-            validator.IsGreaterThan(DateTime.Now, DateTime.Now.AddSeconds(1)); // fail
+            DateTime now = DateTime.Now;
+            validator.IsGreaterThan(now, now.AddSeconds(-5));
+            validator.IsGreaterThan(now, now.AddMinutes(-5));
+            validator.IsGreaterThan(now.Date, now.AddDays(-1));
+            validator.IsGreaterThan(now, now.AddSeconds(1)); // fail
 
             Assert.IsTrue(validator.Errors.Count == 1);
         }
@@ -26,13 +27,14 @@ namespace SimpleValidator.Tests
         {
             Validator validator = new Validator();
 
-            validator.IsGreaterThanOrEqualTo(DateTime.Now, DateTime.Now.AddSeconds(-5));
-            validator.IsGreaterThanOrEqualTo(DateTime.Now, DateTime.Now.AddMinutes(-5));
-            validator.IsGreaterThanOrEqualTo(DateTime.Now.Date, DateTime.Now.AddDays(-1));
-            validator.IsGreaterThanOrEqualTo(DateTime.Now, DateTime.Now);
-            validator.IsGreaterThanOrEqualTo(DateTime.Now.Date, DateTime.Now.AddDays(-1).Date);
-            validator.IsGreaterThanOrEqualTo(DateTime.Now.Date, DateTime.Now.Date);
-            validator.IsGreaterThan(DateTime.Now, DateTime.Now.AddSeconds(1)); // fail
+            DateTime now = DateTime.Now;
+            validator.IsGreaterThanOrEqualTo(now, now.AddSeconds(-5));
+            validator.IsGreaterThanOrEqualTo(now, now.AddMinutes(-5));
+            validator.IsGreaterThanOrEqualTo(now.Date, now.AddDays(-1));
+            validator.IsGreaterThanOrEqualTo(now, now);
+            validator.IsGreaterThanOrEqualTo(now.Date, now.AddDays(-1).Date);
+            validator.IsGreaterThanOrEqualTo(now.Date, now.Date);
+            validator.IsGreaterThan(now, now.AddSeconds(1)); // fail
 
             Assert.IsTrue(validator.Errors.Count == 1);
         }
@@ -42,10 +44,11 @@ namespace SimpleValidator.Tests
         {
             Validator validator = new Validator();
 
-            validator.IsLessThan(DateTime.Now, DateTime.Now.AddSeconds(5));
-            validator.IsLessThan(DateTime.Now, DateTime.Now.AddMinutes(5));
-            validator.IsLessThan(DateTime.Now.Date, DateTime.Now.AddDays(1));
-            validator.IsLessThan(DateTime.Now, DateTime.Now.AddSeconds(-1)); // fail
+            DateTime now = DateTime.Now;
+            validator.IsLessThan(now, now.AddSeconds(5));
+            validator.IsLessThan(now, now.AddMinutes(5));
+            validator.IsLessThan(now.Date, now.AddDays(1));
+            validator.IsLessThan(now, now.AddSeconds(-1)); // fail
 
             Assert.IsTrue(validator.Errors.Count == 1);
         }
@@ -55,13 +58,14 @@ namespace SimpleValidator.Tests
         {
             Validator validator = new Validator();
 
-            validator.IsLessThanOrEqualTo(DateTime.Now, DateTime.Now.AddSeconds(5));
-            validator.IsLessThanOrEqualTo(DateTime.Now, DateTime.Now.AddMinutes(5));
-            validator.IsLessThanOrEqualTo(DateTime.Now.Date, DateTime.Now.AddDays(1));
-            validator.IsLessThanOrEqualTo(DateTime.Now, DateTime.Now);
-            validator.IsLessThanOrEqualTo(DateTime.Now.Date, DateTime.Now.AddDays(1).Date);
-            validator.IsLessThanOrEqualTo(DateTime.Now.Date, DateTime.Now.Date);
-            validator.IsLessThanOrEqualTo(DateTime.Now, DateTime.Now.AddSeconds(-1)); // fail
+            DateTime now = DateTime.Now;
+            validator.IsLessThanOrEqualTo(now, now.AddSeconds(5));
+            validator.IsLessThanOrEqualTo(now, now.AddMinutes(5));
+            validator.IsLessThanOrEqualTo(now.Date, now.AddDays(1));
+            validator.IsLessThanOrEqualTo(now, now);
+            validator.IsLessThanOrEqualTo(now.Date, now.AddDays(1).Date);
+            validator.IsLessThanOrEqualTo(now.Date, now.Date);
+            validator.IsLessThanOrEqualTo(now, now.AddSeconds(-1)); // fail
 
             Assert.IsTrue(validator.Errors.Count == 1);
         }
@@ -71,10 +75,11 @@ namespace SimpleValidator.Tests
         {
             Validator validator = new Validator();
 
-            validator.IsEqualTo(DateTime.Now, DateTime.Now.AddSeconds(5));  // fail
-            validator.IsEqualTo(DateTime.Now, DateTime.Now);
-            validator.IsEqualTo(DateTime.Now.Date, DateTime.Now.Date);
-            validator.IsEqualTo(DateTime.Now, DateTime.Now.AddMilliseconds(-1)); // fail
+            DateTime now = DateTime.Now;
+            validator.IsEqualTo(now, now.AddSeconds(5));  // fail
+            validator.IsEqualTo(now, now);
+            validator.IsEqualTo(now.Date, now.Date);
+            validator.IsEqualTo(now, now.AddMilliseconds(-1)); // fail
 
             Assert.IsTrue(validator.Errors.Count == 2);
         }

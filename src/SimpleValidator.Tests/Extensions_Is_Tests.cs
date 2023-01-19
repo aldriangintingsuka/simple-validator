@@ -2,6 +2,7 @@
 using SimpleValidator;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using Microsoft.Win32;
 using SimpleValidator.Extensions;
@@ -65,7 +66,7 @@ namespace SimpleValidator.Tests
         [TestMethod]
         public void Test_IsDouble()
         {
-            int pass = GetTestData().Count(input => input.IsDouble());
+            int pass = GetTestData().Count(input => input.Replace(".", CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator).IsDouble());
 
             Assert.IsTrue(pass == 8);
         }
@@ -73,7 +74,7 @@ namespace SimpleValidator.Tests
         [TestMethod]
         public void Test_IsDecimal()
         {
-            int pass = GetTestData().Count(input => input.IsDecimal());
+            int pass = GetTestData().Count(input => input.Replace(".", CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator).IsDecimal());
 
             Assert.IsTrue(pass == 8);
         }
