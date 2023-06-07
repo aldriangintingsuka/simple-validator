@@ -4,12 +4,13 @@
     <OutputType>Library</OutputType>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-    <VersionPrefix>0.6.1</VersionPrefix>
+    <VersionPrefix>0.6.1.1</VersionPrefix>
     <PackageId>$(AssemblyName)-netstandard</PackageId>
     <Title>A simple validation library for .Net.</Title>
     <Description>A simple validation library for .Net.</Description>
     <PackageProjectUrl>https://github.com/aldriangintingsuka/simple-validator</PackageProjectUrl>
     <RepositoryUrl>https://github.com/aldriangintingsuka/simple-validator</RepositoryUrl>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
   </PropertyGroup>
   <ItemGroup>
     <Folder Include="Utilities\" />
